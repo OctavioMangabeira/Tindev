@@ -28,9 +28,10 @@ app.use((req, res, next) => {
     return next();
 });
 
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 app.use(cors());
 app.use(express.json());
-app.use("/", express.static(__dirname + "/../../frontend/dist"));
 app.use(routes);
 const port = process.env.PORT || 9999;
 
